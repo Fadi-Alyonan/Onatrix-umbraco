@@ -1,0 +1,166 @@
+﻿#contact-page-info {
+    padding: 80px 0 0 0;
+    position: relative;
+
+    .container {
+
+        .contact-image {
+            position: relative;
+            margin-right: 40px;
+            flex-shrink: 0;
+
+            .contactSectionImage {
+                max-width: 100%;
+                z-index: 2;
+                position: relative;
+            }
+
+            .contactSectionBackgroundImage {
+                position: absolute;
+                max-width: 100%;
+                z-index: 1;
+                left: 0;
+                bottom: 0;
+            }
+        }
+
+        .contact-info {
+
+
+            h2 {
+                font-size: 32px;
+                font-weight: 600;
+                color: $text-color;
+                margin-bottom: 30px;
+            }
+
+            ul {
+                padding: 0;
+
+                li {
+                    font-size: 20px;
+                    font-weight: bold;
+                    margin-bottom: 15px;
+                    display: flex;
+                    align-items: center;
+                    color: $text-color;
+
+                    &::before {
+                        font-weight: 900;
+                        margin-right: 15px;
+                        font-size: 22px;
+                    }
+                }
+
+                p {
+                    margin-left: 40px;
+                    font-size: 18px;
+                    color: $text-color;
+                }
+            }
+        }
+    }
+}
+
+#contact-us-section {
+    position: relative;
+    background-color: $white-color;
+    padding: 0;
+    margin-bottom:30px;
+
+    img {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .container {
+        position: relative;
+        max-width: 800px;
+        margin: 100px auto 0;
+        padding: 50px;
+        background-color: $white-color;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        z-index: 1;
+
+        h6 {
+            color: $accent;
+            font-size: 1rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: $primary-color;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: $text-light-color;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+
+            .form-input {
+                flex: 1 1 calc(50% - 20px);
+
+                input,
+                textarea,
+                select {
+                    width: 100%;
+                    padding: 12px;
+                    font-size: 1rem;
+                    border: 1px solid $gray;
+                    border-radius: 5px;
+                    background-color: $white-color;
+                    transition: border-color 0.3s ease;
+
+                    &:focus {
+                        border-color: $secondary-color;
+                        outline: none;
+                    }
+
+                    &::placeholder {
+                        color: $text-light-color;
+                    }
+                }
+            }
+
+            textarea {
+                height: 50px;
+                resize: none;
+            }
+
+            .form-input-error {
+                display: none;
+                color: $secondary-color;
+                font-size: 0.875rem;
+            }
+
+            .form-button {
+                width: 100%;
+                padding: 12px 0;
+                background-color: $primary-color;
+                color: $white-color;
+                border: none;
+                border-radius: 5px;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: darken($primary-color, 10%);
+                }
+            }
+        }
+    }
+}

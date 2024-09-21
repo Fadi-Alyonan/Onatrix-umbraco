@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@{
+ var pageInfoDescription = Model.Content.Value<string>("pageInfoDescription");
+}
+
+@if (!string.IsNullOrEmpty(pageInfoDescription))
+{
+    <div>@pageInfoDescription</div>
+}

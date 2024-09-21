@@ -1,0 +1,22 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var slides = Model.Content.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("serviceSlider");
+}
+<div class="services">
+    @foreach(var item in slides)
+    {
+        var serviceImage = item.Content.Value<IPublishedContent>("serviceImage").Url() ?? null;
+        var serviceImageDescription = item.Content.Value<string>("serviceImageDescription") ?? "";
+        var serviceTitle = item.Content.Value<string>("serviceTitle") ?? "";
+        var serviceDescription = item.Content.Value<string>("serviceDescription") ?? "";
+        var preamble = item.Content.Value<string>("preamble") ?? "";
+        var serviceUrl = item.Content.Value<string>("serviceUrl") ?? "";
+        <a id="@serviceTitle" href="@serviceUrl">
+            <h4>@serviceTitle</h4>
+            <img src="@serviceImage" alt="@serviceImageDescription" class="@serviceImage" />
+            <p>@preamble</p>
+        </a>
+    }
+</div>

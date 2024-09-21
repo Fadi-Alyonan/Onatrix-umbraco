@@ -1,0 +1,65 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+@using Umbraco.Cms.Core
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Extensions
+
+@inject IPublishedValueFallback PublishedValueFallback
+@inject IPublishedUrlProvider PublishedUrlProvider
+
+
+@{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settings") ?? null;
+    var siteName = settings?.Value<string> ("siteName") ?? "";
+    var siteLogo = settings?.Value<IPublishedContent>("siteLogo").Url() ?? null; 
+
+
+    var officeLocation = settings?.Value<string> ("officeLocation") ?? "";
+    var officePhoneNumber = settings?.Value<string> ("officePhoneNumber") ?? "";
+    var officeEmailAddress = settings?.Value<string> ("officeEmailAddress") ?? "";
+
+
+    var faceBookLink = settings?.Value<string> ("faceBookLink") ?? "";
+    var xLink = settings?.Value<string> ("xLink") ?? "";
+    var linkedinLink = settings?.Value<string> ("linkedinLink") ?? "";
+ 
+    var selection = Model.Root().Children.Where(x => x.IsVisible(PublishedValueFallback)).ToArray();
+}
+<div class="top-bar">
+    <div class="container">
+        <p>@officeLocation</p>
+        <div class="social-links">
+            <a href="@faceBookLink"><i class="fab fa-facebook-f"></i></a>
+            <a href="@xLink"><i class="fab fa-twitter"></i></a>
+            <a href="@linkedinLink"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+</div>
+<div class="main-header">
+    <div class="container">
+        <div class="logo">
+            <a href="@Umbraco.ContentAtRoot().First().Url()">
+                <img src="@siteLogo" alt="Onatrix">
+            </a>
+        </div>
+        <nav>
+            @if (selection?.Length > 0)
+            {
+                <ul>
+                    @foreach (var item in selection)
+                    {
+                        <li class="@(item.IsAncestorOrSelf(Model) ? "nav-link active" : "nav-link")">
+                            <a href="@item.Url(PublishedUrlProvider)">@item.Name</a>
+                        </li>
+                    }
+                </ul>
+            }
+        </nav>
+        <div class="search-icon">
+            <a><i class="fas fa-search"></i></a>
+        </div>
+    </div>
+</div>

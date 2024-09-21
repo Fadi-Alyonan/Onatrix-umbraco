@@ -1,0 +1,133 @@
+﻿header {
+    .top-bar {
+        background-color: #4A555B;
+        color: white;
+        font-size: 0.875rem;
+        padding: 10px 0;
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            p {
+                margin: 0;
+            }
+
+            .social-links {
+                a {
+                    color: white;
+                    margin-left: 15px;
+                    font-size: 1rem;
+
+                    &:hover {
+                        color: #18BC9C;
+                    }
+                }
+            }
+        }
+    }
+
+    .main-header {
+        background-color: white;
+        padding: 20px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .logo img {
+                max-width: 150px;
+                height: auto;
+            }
+
+            nav {
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+
+                    li {
+                        margin: 0 15px;
+
+                        a {
+                            text-decoration: none;
+                            color: $text-color;
+                            font-weight: bold;
+
+                            &:hover {
+                                color: #f39c12;
+                            }
+                        }
+                    }
+
+                    .active {
+                        a {
+                            color: #f39c12;
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+
+            .search-icon {
+                a {
+                    color: #2C3E50;
+                    font-size: 1.25rem;
+
+                    &:hover {
+                        color: #18BC9C;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Responsiv design
+
+@media (max-width: 1024px) {
+    header .main-header .container {
+        flex-direction: column;
+        align-items: flex-start;
+
+        nav ul {
+            margin-top: 15px;
+            flex-direction: column;
+
+            li {
+                margin: 5px 0;
+            }
+        }
+
+        .search-icon {
+            margin-top: 15px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    header .top-bar .container {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .social-links {
+            margin-top: 10px;
+        }
+    }
+
+    header .main-header .container {
+        align-items: flex-start;
+
+        .logo img {
+            margin-bottom: 15px;
+        }
+
+        nav ul {
+            align-items: flex-start;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var className = Model?.Content.Value<string>("className") ?? "";
+    var divId = className?.ToString().ToLower().Trim().Replace(" ", "-");
+}
+<div class="@divId">
+    @await Html.GetBlockGridItemAreasHtmlAsync(Model)
+</div>

@@ -1,0 +1,15 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@{
+ var linkUrl = Model.Content.Value<string>("linkUrl");
+ var linkText = Model.Content.Value<string>("linkText");
+}
+
+@if(!string.IsNullOrEmpty(linkUrl)){
+    <a href="@linkUrl" id="@linkText">
+
+    @await Html.GetBlockGridItemAreasHtmlAsync(Model)
+
+    </a>
+}

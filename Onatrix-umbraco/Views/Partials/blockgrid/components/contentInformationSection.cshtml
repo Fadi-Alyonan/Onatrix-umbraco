@@ -1,0 +1,32 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@{
+
+
+    var contactSectionImage = Model.Content.Value<IPublishedContent>("contactSectionImage").Url()??null;
+    var contactSectionBackgroundImage = Model.Content.Value<IPublishedContent>("contactSectionBackgroundImage").Url()??null;
+    var headerDescription = Model.Content.Value<string>("headerDescription") ?? "";
+    var officeLocation = Model.Content.Value<string>("officeLocation") ?? "";
+    var phoneNumber = Model.Content.Value<string>("phoneNumber") ?? "";
+    var emailAddress = Model.Content.Value<string>("emailAddress") ?? "";
+
+}
+<div class="container">
+    <div class="contact-image">
+        <img src="@contactSectionImage" alt="@contactSectionImage" class="contactSectionImage" />
+        <img src="@contactSectionBackgroundImage" alt="@contactSectionBackgroundImage" class="contactSectionBackgroundImage" />
+    </div>
+    <div class="contact-info">
+        <h2>@headerDescription</h2>
+        <ul>
+            <li class="fa-solid fa-location-dot">Office location</li>
+            <p>@officeLocation</p>
+            <li class="fa-solid fa-phone">Phone number</li>
+            <p>@phoneNumber</p>
+            <li class="fa-regular fa-envelope">E-mail address</li>
+            <p>@emailAddress</p>
+        </ul>
+    </div>
+
+</div>

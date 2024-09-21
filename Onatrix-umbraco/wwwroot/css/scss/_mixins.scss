@@ -1,0 +1,36 @@
+﻿// Flexbox Mixin
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// Grid System Mixin
+@mixin grid-column($col) {
+    width: percentage($col / 12);
+    padding: 15px;
+}
+
+// Media Queries Mixin
+@mixin respond($breakpoint) {
+    @if $breakpoint == "small" {
+        @media (max-width: 576px) {
+            @content;
+        }
+    }
+    @else if $breakpoint == "medium" {
+        @media (max-width: 768px) {
+            @content;
+        }
+    }
+    @else if $breakpoint == "large" {
+        @media (max-width: 992px) {
+            @content;
+        }
+    }
+    @else if $breakpoint == "xlarge" {
+        @media (max-width: 1200px) {
+            @content;
+        }
+    }
+}

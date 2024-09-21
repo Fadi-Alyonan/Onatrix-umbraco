@@ -1,0 +1,25 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var slides = Model.Content.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("projectSlider");
+}
+<div class="projects">
+    @foreach(var item in slides)
+    {
+        var projectImage = item.Content.Value<IPublishedContent>("projectImage").Url() ?? null;
+        var projectImageDescription = item.Content.Value<string>("projectImageDescription") ?? "";
+        var projectTitle = item.Content.Value<string>("projectTitle") ?? "";
+        var projectDescription = item.Content.Value<string>("projectDescription") ?? "";
+        var preamble = item.Content.Value<string>("preamble") ?? "";
+        var projectUrl = item.Content.Value<string>("projectUrl") ?? "";
+        <a id="@projectTitle" href="@projectUrl">
+            <img src="@projectImage" alt="@projectImageDescription" class="@projectImage" />
+            <div class="content">
+                <h4>@projectTitle</h4>
+                <p>@preamble</p>
+                <p>Read more</p>
+            </div>
+        </a>
+    }
+</div>

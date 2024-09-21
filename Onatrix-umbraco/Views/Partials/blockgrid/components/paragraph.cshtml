@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@{
+ var paragraphContent = Model.Content.Value<string>("paragraphContent");
+}
+
+@if(!string.IsNullOrEmpty(paragraphContent)){
+    <p>@paragraphContent</p>
+}
+@await Html.GetBlockGridItemAreasHtmlAsync(Model)

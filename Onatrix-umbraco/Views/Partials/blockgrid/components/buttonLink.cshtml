@@ -1,0 +1,17 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@using static Umbraco.Cms.Core.PropertyEditors.ValueConverters.ColorPickerValueConverter
+@{
+    var buttonLinkText = Model?.Content.Value<string>("buttonLinkText") ?? "";
+    var buttonLinkUrl = Model?.Content.Value<string>("buttonLinkUrl") ?? "";
+
+    var buttonLinkColor = Model?.Content.Value<PickedColor>("buttonLinkColor").Label.ToLower() ?? null;
+    
+}
+
+@if(!string.IsNullOrEmpty(buttonLinkColor)){
+    <a href="@buttonLinkUrl" title="@buttonLinkText" class="btn @buttonLinkColor">@buttonLinkText</a>
+}else{
+    <a href="@buttonLinkUrl" title="@buttonLinkText" class="btn">@buttonLinkText</a>
+}
