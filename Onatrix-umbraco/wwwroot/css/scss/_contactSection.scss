@@ -50,7 +50,7 @@
                         font-weight: 900;
                         margin-right: 15px;
                         font-size: 22px;
-                    }  
+                    }
                 }
 
                 p {
@@ -58,6 +58,26 @@
                     font-size: 18px;
                     color: $text-color;
                 }
+            }
+        }
+    }
+
+    @include respond("medium") {
+        .container {
+            padding-bottom: 30px;
+
+            .contact-image {
+                display: none;
+            }
+        }
+    }
+
+    @include respond("small") {
+        .container {
+            padding-bottom: 30px;
+
+            .contact-image {
+                display: none;
             }
         }
     }

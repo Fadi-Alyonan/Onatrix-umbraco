@@ -44,11 +44,11 @@ namespace Onatrix_umbraco.Controlles
                 PhoneNumber = form.phonenumber
             };
 
-            // Convert the data to a JSON string
+            
             var jsonString = JsonConvert.SerializeObject(jsonData);
             var content = new StringContent(jsonString, Encoding.UTF8, "application/json");
 
-            // Send the data to the Azure Function
+            
             var client = _httpClientFactory.CreateClient();
             var azureFunctionUrl = "https://email-sender-provider.azurewebsites.net/api/SendEmailToServiceBus?code=ocAnVCYCvXP4d76l7NMgJdOMZBS_wERDf5nTeGQtXohWAzFuFGih2Q%3D%3D"; 
 
@@ -56,13 +56,12 @@ namespace Onatrix_umbraco.Controlles
 
             if (response.IsSuccessStatusCode)
             {
-                
-                return RedirectToCurrentUmbracoPage();
+                TempData["success"] = "Form Submitted Successfully. Thank you, we will contact you soon.";
+                return CurrentUmbracoPage();
             }
             else
             {
-                
-                ModelState.AddModelError("", "There was an error submitting the form. Please try again later.");
+                TempData["success"] = "There was an error submitting the form. Please try again later.";
                 return CurrentUmbracoPage();
             }
         }

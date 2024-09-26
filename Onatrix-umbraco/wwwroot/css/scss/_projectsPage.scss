@@ -11,8 +11,8 @@
         text-decoration: none;
         color: $text-color;
         padding: 15px;
-        margin-bottom:10px;
-        margin-bottom:10px;
+        margin-bottom: 10px;
+        margin-bottom: 10px;
         gap: 15px;
 
         &:hover {
@@ -30,23 +30,39 @@
 
         .content {
             text-align: start;
+
             h4 {
                 color: $primary-color;
                 font-size: 1.2rem;
                 margin: 20px 0;
-                margin-bottom:50px;
+                margin-bottom: 50px;
             }
 
             p {
                 font-size: 0.9rem;
                 color: $text-light-color;
-                margin-top:50px;
+                margin-top: 50px;
+
                 &:last-child {
                     color: $secondary-color;
                     font-weight: bold;
                     font-size: 0.95rem;
                 }
             }
+        }
+    }
+
+    @include respond("medium") {
+        a {
+            display: flex;
+            width: 100%;
+        }
+    }
+
+    @include respond("small") {
+        a {
+            display: block;
+            width: 100%;
         }
     }
 }

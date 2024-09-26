@@ -60,13 +60,33 @@
             }
         }
     }
+
+    @include respond("medium") {
+        .container {
+            padding-bottom: 30px;
+
+            .contact-image {
+                display: none;
+            }
+        }
+    }
+
+    @include respond("small") {
+        .container {
+            padding-bottom: 30px;
+
+            .contact-image {
+                display: none;
+            }
+        }
+    }
 }
 
 #contact-us-section {
     position: relative;
     background-color: $white-color;
     padding: 0;
-    margin-bottom:30px;
+    margin-bottom: 30px;
 
     img {
         width: 100%;
@@ -142,7 +162,13 @@
 
             .form-input-error {
                 display: none;
-                color: $secondary-color;
+                color: red;
+                font-size: 0.875rem;
+            }
+
+            .form-invalid-input {
+                display: block;
+                color: red;
                 font-size: 0.875rem;
             }
 
@@ -162,5 +188,22 @@
                 }
             }
         }
+
+        @include respond("medium") {
+        }
+
+        @include respond("small") {
+            form {
+                display: block;
+
+                .form-input {
+                    margin-bottom:10px;
+
+                }
+            }
+
+            
+        }
     }
 }
+

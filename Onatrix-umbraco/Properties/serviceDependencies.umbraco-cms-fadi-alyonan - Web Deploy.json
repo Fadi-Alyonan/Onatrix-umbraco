@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/onatrix-umbraco-cms/databases/Onatrix-umbraco",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:umbracoDbDSN",
+      "dynamicId": null
+    },
+    "secrets1": {
+      "ignored": "true",
+      "type": "secrets"
+    }
+  }
+}

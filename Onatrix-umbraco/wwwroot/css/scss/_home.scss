@@ -108,15 +108,7 @@
         }
     }
 
-    @include respond("small") {
-        h2 {
-            font-size: 28px;
-        }
 
-        .quote {
-            font-size: 16px;
-        }
-    }
 
     .container {
         .contact-form {
@@ -176,7 +168,13 @@
 
                 .form-input-error {
                     display: none;
-                    color: $secondary-color;
+                    color: red;
+                    font-size: 0.875rem;
+                }
+
+                .form-invalid-input {
+                    display: block;
+                    color: red;
                     font-size: 0.875rem;
                 }
 
@@ -197,7 +195,51 @@
             }
         }
     }
+    // Responsiv design
+    @include respond("small") {
+        h2 {
+            font-size: 28px;
+        }
+
+        .quote {
+            font-size: 16px;
+        }
+
+        .container {
+            .contact-form {
+                position: static;
+                width: 100%;
+            }
+        }
+    }
+
+    @include respond("medium") {
+        h2 {
+            font-size: 32px;
+        }
+
+        .container {
+            .contact-form {
+                position: static;
+            }
+        }
+    }
+
+    @include respond("large") {
+        h2 {
+            font-size: 34px;
+        }
+
+        .container {
+            .contact-form {
+                position: static;
+            }
+        }
+    }
 }
+
+
+
     // Services Section
 #our-services {
     position: relative;
@@ -432,8 +474,6 @@
 #our-projects {
     position: relative;
 
-    
-
     .container {
         position: relative;
 
@@ -454,6 +494,7 @@
 
     a {
         text-decoration: none;
+
         img {
             position: relative;
             width: 100%;
@@ -463,6 +504,7 @@
         }
 
         .container {
+
             position: absolute;
             bottom: 50;
             width: 100%;
@@ -519,6 +561,7 @@
         }
 
         a {
+
             img {
                 max-width: 100%;
             }

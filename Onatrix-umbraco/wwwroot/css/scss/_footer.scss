@@ -1,6 +1,10 @@
 ﻿footer {
     background-color: #343a40;
     color: $background-color;
-    text-align: start;
     padding: 5px 0;
+
+    .container {
+        display:block;
+        align-items: start;
+    }
 }
